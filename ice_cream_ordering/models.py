@@ -6,6 +6,7 @@ from django.utils import timezone
 
 class IceCream(models.Model):
     flavor = models.CharField(max_length=30)
+
     def __str__(self):
         return self.flavor
 
@@ -16,6 +17,8 @@ class Topping(models.Model):
 
 class Container(models.Model):
     option = models.CharField(max_length=30)
+    def __str__(self):
+        return self.option
 
 class Order(models.Model):
     name = models.CharField(max_length=30)
@@ -29,3 +32,10 @@ class Order(models.Model):
 
     def __str__(self):
         return self.name
+
+    #returns a string of all ice cream flavors associated with an order 
+    def get_flavors(self):
+        l = []
+        for f in self.flavors.all():
+            l.append(f.flavor)
+        return ", ".join(l)
