@@ -38,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ice_cream_ordering',
-    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (

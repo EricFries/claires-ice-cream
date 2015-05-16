@@ -26,8 +26,8 @@ class Order(models.Model):
     phone = models.CharField(max_length=12)
     email = models.CharField(max_length=30)
     date = models.DateTimeField('date ordered')
-    flavors = models.ManyToManyField(IceCream)
-    topping = models.ForeignKey(Topping)
+    flavor = models.ForeignKey(IceCream)
+    toppings = models.ManyToManyField(Topping)
     container = models.ForeignKey(Container)
 
     def __str__(self):
