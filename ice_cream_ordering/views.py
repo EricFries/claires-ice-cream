@@ -15,21 +15,15 @@ def index(request):
 
 def flavor_list(request):
     all_flavors = IceCream.objects.all()
-    template = loader.get_template('ice_cream_ordering/flavors.html')
-    context = RequestContext(request, {'all_flavors': all_flavors,
-    	})
-    return HttpResponse(template.render(context))
+    context = {'all_flavors': all_flavors}
+    return render(request, 'ice_cream_ordering/flavors.html', context)
 
 def topping_list(request):
     all_toppings = Topping.objects.all()
-    template = loader.get_template('ice_cream_ordering/toppings.html')
-    context = RequestContext(request, {'all_toppings': all_toppings,
-    	})
-    return HttpResponse(template.render(context))
+    context = {'all_toppings': all_toppings}
+    return render(request, 'ice_cream_ordering/toppings.html', context)
 
 def container_list(request):
     all_containers = Container.objects.all()
-    template = loader.get_template('ice_cream_ordering/containers.html')
-    context = RequestContext(request, {'all_containers': all_containers,
-    	})
-    return HttpResponse(template.render(context))
+    context = {'all_containers': all_containers}
+    return render(request, 'ice_cream_ordering/containers.html', context)
