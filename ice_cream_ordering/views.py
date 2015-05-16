@@ -10,8 +10,7 @@ from .models import Order, IceCream, Topping, Container
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Welcome to Claire's Ice Cream!")
-
+    return render(request, 'ice_cream_ordering/index.html')
 
 def flavor_list(request):
     all_flavors = IceCream.objects.all()

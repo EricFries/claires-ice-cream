@@ -18,6 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
 	url(r'', include('ice_cream_ordering.urls')),
-	url(r'^orders/', include('ice_cream_ordering.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
