@@ -26,3 +26,13 @@ def container_list(request):
     all_containers = Container.objects.all()
     context = {'all_containers': all_containers}
     return render(request, 'ice_cream_ordering/containers.html', context)
+
+def new(request):
+    all_containers = Container.objects.all()
+    all_toppings = Topping.objects.all()
+    all_flavors = IceCream.objects.all()
+    context = {'all_flavors': all_flavors, 'all_toppings': all_toppings, 'all_containers': all_containers}
+    return render(request, 'ice_cream_ordering/new.html', context)
+
+def create(request):
+     return render(request, 'ice_cream_ordering/create.html')

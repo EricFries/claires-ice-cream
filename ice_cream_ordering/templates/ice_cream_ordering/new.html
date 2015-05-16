@@ -1,0 +1,37 @@
+<h1>Claire's Ice Cream</h1>
+
+<ul>
+	<li><a href="/">Home</a></li>
+	<li><a href="/flavors">View Flavors</a></li>
+	<li><a href="/containers">View Containers</a></li>
+	<li><a href="/toppings">View Toppings</a></li>
+	<li><a href="/new">Place Order</a></li>
+</ul>
+
+<h3>Place Order</h3>
+
+<p>Choose A Flavor:</p>
+<form action="{% url 'create' %}" method="post">
+{% csrf_token %}
+{% for f in all_flavors %}
+    <input type="radio" name="flavor" id="flavor{{ forloop.counter }}" value="{{ f.id }}" />
+    <label for="flavor{{ forloop.counter }}">{{ f.flavor }}</label><br />
+{% endfor %}
+
+<p>Choose A Container:</p>
+
+{% for c in all_containers %}
+    <input type="radio" name="container" id="container{{ forloop.counter }}" value="{{ c.id }}" />
+    <label for="container{{ forloop.counter }}">{{ c.option }}</label><br />
+{% endfor %}
+
+<p>Choose Your Toppings:</p>
+
+{% for t in all_toppings %}
+    <input type="checkbox" name="toppings" id="toppings{{ forloop.counter }}" value="{{ t.id }}" />
+    <label for="toppings{{ forloop.counter }}">{{ t.variety }}</label><br />
+{% endfor %}
+
+
+<input type="submit" value="Place Order" />
+</form>
