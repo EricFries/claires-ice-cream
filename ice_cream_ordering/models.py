@@ -1,6 +1,11 @@
+import datetime
+
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
+#add foreign keys to order instead?
+# 1 flavor, 1 conatiner, multiple toppings
 
 class Order(models.Model):
     name = models.CharField(max_length=30)
@@ -8,14 +13,22 @@ class Order(models.Model):
     phone = models.CharField(max_length=12)
     email = models.CharField(max_length=30)
     date = models.DateTimeField('date ordered')
+    flavor = models.ForeignKey(IceCream)
+    topping = models.ForeignKey(Topping)
+    container = models.ForeignKey(Container)
 
     def __str__(self):
-        return self.order_name
+        return self.name
 
 class IceCream(models.Model):
-    order = models.ForeignKey(Order)
     flavor = models.CharField(max_length=30)
+    def __str__(self):
+        return self.flavor
 
 class Topping(models.Model):
-    order = models.ForeignKey(Order)
     variety = models.CharField(max_length=30)
+    def __str__(self):
+        return self.variety
+
+class Container(models.Model):
+    option = models.CharField(max_length=30)
