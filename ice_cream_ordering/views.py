@@ -8,6 +8,8 @@ from django.template import RequestContext, loader
 
 from .models import Order, IceCream, Topping, Container
 
+from IPython import embed
+
 # Create your views here.
 def index(request):
     return render(request, 'ice_cream_ordering/index.html')
@@ -35,4 +37,7 @@ def new(request):
     return render(request, 'ice_cream_ordering/new.html', context)
 
 def create(request):
-     return render(request, 'ice_cream_ordering/create.html')
+    embed()
+    icecream = IceCream.objects.get(pk=request.POST['flavor'])
+    container = Container.objects.get(pk=request.POST['container'])
+    return render(request, 'ice_cream_ordering/create.html')
