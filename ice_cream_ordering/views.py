@@ -37,7 +37,13 @@ def new(request):
     return render(request, 'ice_cream_ordering/new.html', context)
 
 def create(request):
-    embed()
-    icecream = IceCream.objects.get(pk=request.POST['flavor'])
-    container = Container.objects.get(pk=request.POST['container'])
+    # embed()
+    #is mass assignment poassile here?
+   order = Order(name=request.POST['fullname'], address=request.POST['address'], email=request.POST['email'], phone= request.POST['phone'], date=timezone.now())
+
+    order.flavor = IceCream.objects.get(pk=request.POST['flavor'])
+    order.container = Container.objects.get(pk=request.POST['container'])
+    #add multiple toppings.  iterate?  or add multiple at once?
+
+    order.save()
     return render(request, 'ice_cream_ordering/create.html')
