@@ -4,7 +4,7 @@ from .models import Order, IceCream, Topping, Container
 # Register your models here.
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('name', 'get_flavors',)
+    list_display = ('name')
 
 admin.site.register(Order)
 admin.site.register(IceCream)

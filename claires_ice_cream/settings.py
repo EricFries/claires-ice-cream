@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ice_cream_ordering',
+    'djrill',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -105,3 +106,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MANDRILL_API_KEY = "b2uKa3P0FCyJrnPOEFxANQ"
+EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+DEFAULT_FROM_EMAIL = "ericfries@gmail.com" 

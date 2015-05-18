@@ -2,7 +2,8 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
-
+from django.core.mail import send_mail
+from IPython import embed
 
 class IceCream(models.Model):
     flavor = models.CharField(max_length=30)
@@ -34,8 +35,16 @@ class Order(models.Model):
         return self.name
 
     #returns a string of all ice cream flavors associated with an order 
-    def get_flavors(self):
-        l = []
-        for f in self.flavors.all():
-            l.append(f.flavor)
-        return ", ".join(l)
+    def get_toppings(self):
+        toppings_list = []
+        for topping in self.toppings.all():
+            toppings_list.append(topping.variety)
+        return ", ".join(toppings_list)
+
+    def send_email(self):
+        toppings = self.get_toppings()
+
+        email_body = "Order Details:\nFlavor: %s\nContainer: %s\nToppings: %s" %(self.flavor.flavor, self.container.option,toppings)
+
+        send_mail("New Ice Cream Order!", email_body,
+        "Djrill Sender <ericfries@gmail.com>", ["ericfries@example.com"])

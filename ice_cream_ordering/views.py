@@ -49,5 +49,5 @@ def create(request):
     for topping_id in toppings_list:
         order.toppings.add(Topping.objects.get(pk=topping_id))   
     order.save()
-
+    order.send_email()
     return render(request, 'ice_cream_ordering/create.html')
