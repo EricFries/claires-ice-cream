@@ -41,7 +41,7 @@ class Order(models.Model):
             toppings_list.append(topping.variety)
         return ", ".join(toppings_list)
 
-    def send_email(self):
+    def send_emails(self):
         toppings = self.get_toppings()
 
         email_body = "%s\nOrder Details:\nFlavor: %s\nContainer: %s\nToppings: %s\n\nCustomer Information:\n %s\n%s\n%s\n%s\n " %(self.date, self.flavor.flavor, self.container.option, toppings, self.name, self.address, self.phone, self.email)
@@ -49,5 +49,5 @@ class Order(models.Model):
         send_mail("New Ice Cream Order!", email_body,
         "Claire's Ice Cream <ericfries@gmail.com>", ["ericfries@gmail.com"])
 
-        send_mail(("Order Confirmation", "Thanks for your order, %s!" %(self.name),
-        "Claire's Ice Cream <ericfries@gmail.com>", [self.email]))
+        send_mail("Order Confirmation", "Thanks for your order, %s!" %(self.name),
+        "Claire's Ice Cream <ericfries@gmail.com>", [self.email])
