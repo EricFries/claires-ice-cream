@@ -16,7 +16,10 @@
 			    <label for="flavor{{ forloop.counter }}">{{ f.flavor }}</label>
 			    <input type="radio" name="flavor" id="flavor{{ forloop.counter }}" value="{{ f.id }}" class="form-control"/>
 			{% endfor %}
-			</div>
+
+
+	</div>
+	<div class="col-md-4">
 
 			<p>Choose A Container:</p>
 			<div class="form-group">
@@ -26,7 +29,9 @@
 			    <br />
 			{% endfor %}
 			</div>
+	</div>
 
+	<div class="col-md-4">
 			<p>Choose Your Toppings:</p>
 			<div class="form-group">
 			{% for t in all_toppings %}
@@ -35,6 +40,10 @@
 			    <br />
 			{% endfor %}	
 			</div>
+		</div>
+		<div class = "row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
 			<p>Contact Information:</p>
 				<div class="form-group">
 			  Name: <input type="text" name="fullname" class="form-control"><br>
@@ -44,6 +53,7 @@
 			</div>
 			<input type="submit" value="Place Order" class="form-control"/>
 			</form>
+		</div>
 		</div>
 	</div>
 </center>
