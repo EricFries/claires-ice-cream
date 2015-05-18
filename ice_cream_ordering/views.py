@@ -37,13 +37,17 @@ def new(request):
     return render(request, 'ice_cream_ordering/new.html', context)
 
 def create(request):
-    # embed()
-    #is mass assignment poassile here?
-   order = Order(name=request.POST['fullname'], address=request.POST['address'], email=request.POST['email'], phone= request.POST['phone'], date=timezone.now())
+    #Possibly refactor form to be nested.
+    order = Order(name=request.POST['fullname'], address=request.POST['address'], email=request.POST['email'], phone= request.POST['phone'], date=timezone.now())
 
     order.flavor = IceCream.objects.get(pk=request.POST['flavor'])
     order.container = Container.objects.get(pk=request.POST['container'])
-    #add multiple toppings.  iterate?  or add multiple at once?
-
     order.save()
+
+    #Get list of topping ids rather than using the QueryDict object.
+    toppings_list = request.POST.getlist('toppings')
+    for topping_id in toppings_list:
+        order.toppings.add(Topping.objects.get(pk=topping_id))   
+    order.save()
+
     return render(request, 'ice_cream_ordering/create.html')
