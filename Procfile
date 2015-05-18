@@ -1,0 +1,1 @@
+web: gunicorn claires_ice_cream.wsgi --log-file -
