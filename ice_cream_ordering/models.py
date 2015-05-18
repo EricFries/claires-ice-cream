@@ -7,17 +7,20 @@ from IPython import embed
 
 class IceCream(models.Model):
     flavor = models.CharField(max_length=30)
+    image_url = models.CharField(max_length=200)
 
     def __str__(self):
         return self.flavor
 
 class Topping(models.Model):
     variety = models.CharField(max_length=30)
+    image_url = models.CharField(max_length=200)
     def __str__(self):
         return self.variety
 
 class Container(models.Model):
     option = models.CharField(max_length=30)
+    image_url = models.CharField(max_length=200)
     def __str__(self):
         return self.option
 
