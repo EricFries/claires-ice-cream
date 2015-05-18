@@ -5,8 +5,6 @@
 <center>
 	<div class="col-md-4">
 		<h3>Place Order</h3>
-
-
 			<p>Choose A Flavor:</p>
 			<form action="{% url 'create' %}" method="post"> 
 
@@ -18,9 +16,6 @@
 			{% endfor %}
 
 
-	</div>
-	<div class="col-md-4">
-
 			<p>Choose A Container:</p>
 			<div class="form-group">
 			{% for c in all_containers %}
@@ -29,9 +24,7 @@
 			    <br />
 			{% endfor %}
 			</div>
-	</div>
 
-	<div class="col-md-4">
 			<p>Choose Your Toppings:</p>
 			<div class="form-group">
 			{% for t in all_toppings %}
@@ -39,11 +32,8 @@
 			    <input type="checkbox" name="toppings" id="toppings{{ forloop.counter }}" value="{{ t.id }}" class="form-control"/>
 			    <br />
 			{% endfor %}	
-			</div>
 		</div>
 		<div class = "row">
-		<div class="col-md-4"></div>
-		<div class="col-md-4">
 			<p>Contact Information:</p>
 				<div class="form-group">
 			  Name: <input type="text" name="fullname" class="form-control"><br>
@@ -54,7 +44,7 @@
 			<input type="submit" value="Place Order" class="form-control"/>
 			</form>
 		</div>
-		</div>
 	</div>
+</div>
 </center>
 {% endblock content%}
