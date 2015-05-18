@@ -10,7 +10,7 @@
 	{% csrf_token %}
 	{% for f in all_flavors %}
 	    <input type="radio" name="flavor" id="flavor{{ forloop.counter }}" value="{{ f.id }}" class="form-control"/>
-	    <label for="flavor{{ forloop.counter }}">{{ f.flavor }}</label><br />
+	    <label for="flavor{{ forloop.counter }}">{{ f.flavor }}</label>
 	{% endfor %}
 
 	<p>Choose A Container:</p>
