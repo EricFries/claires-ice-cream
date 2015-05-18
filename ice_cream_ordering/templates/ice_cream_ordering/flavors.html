@@ -7,7 +7,7 @@
 <ul>
 	{% for f in all_flavors %}
 	    <li>{{ f.flavor }}</li>
-	   	<img src={{"/static/ice_cream_ordering/images/%s" %(f.image_url)}}>
+	   	<img src={{f.image_url}}>
 	{% endfor %}
 </ul>
 
