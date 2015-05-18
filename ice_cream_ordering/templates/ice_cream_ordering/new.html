@@ -10,32 +10,34 @@
 
 <h3>Place Order</h3>
 
+<div class="col-lg-10" class="form-group">
 <p>Choose A Flavor:</p>
-<form action="{% url 'create' %}" method="post">
-{% csrf_token %}
-{% for f in all_flavors %}
-    <input type="radio" name="flavor" id="flavor{{ forloop.counter }}" value="{{ f.id }}" />
-    <label for="flavor{{ forloop.counter }}">{{ f.flavor }}</label><br />
-{% endfor %}
+	<form action="{% url 'create' %}" method="post">
+	{% csrf_token %}
+	{% for f in all_flavors %}
+	    <input type="radio" name="flavor" id="flavor{{ forloop.counter }}" value="{{ f.id }}" />
+	    <label for="flavor{{ forloop.counter }}">{{ f.flavor }}</label><br />
+	{% endfor %}
 
-<p>Choose A Container:</p>
+	<p>Choose A Container:</p>
 
-{% for c in all_containers %}
-    <input type="radio" name="container" id="container{{ forloop.counter }}" value="{{ c.id }}" />
-    <label for="container{{ forloop.counter }}">{{ c.option }}</label><br />
-{% endfor %}
+	{% for c in all_containers %}
+	    <input type="radio" name="container" id="container{{ forloop.counter }}" value="{{ c.id }}" />
+	    <label for="container{{ forloop.counter }}">{{ c.option }}</label><br />
+	{% endfor %}
 
-<p>Choose Your Toppings:</p>
+	<p>Choose Your Toppings:</p>
 
-{% for t in all_toppings %}
-    <input type="checkbox" name="toppings" id="toppings{{ forloop.counter }}" value="{{ t.id }}" />
-    <label for="toppings{{ forloop.counter }}">{{ t.variety }}</label><br />
-{% endfor %}
+	{% for t in all_toppings %}
+	    <input type="checkbox" name="toppings" id="toppings{{ forloop.counter }}" value="{{ t.id }}" />
+	    <label for="toppings{{ forloop.counter }}">{{ t.variety }}</label><br />
+	{% endfor %}
 
-  Name: <input type="text" name="fullname"><br>
-  Address: <input type="text" name="address"><br>
-  Email: <input type="text" name="email"><br>
-  Phone: <input type="text" name="phone"><br>
+	  Name: <input type="text" name="fullname"><br>
+	  Address: <input type="text" name="address"><br>
+	  Email: <input type="text" name="email"><br>
+	  Phone: <input type="text" name="phone"><br>
 
-<input type="submit" value="Place Order" />
-</form>
+	<input type="submit" value="Place Order" />
+	</form>
+</div>
