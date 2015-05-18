@@ -7,3 +7,5 @@ testenv
 *.pyc
 
 myproject/static
+
+settings.py
