@@ -1,6 +1,7 @@
 from django.conf.urls import url
 
 from . import views
+from django.conf import settings
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -10,3 +11,8 @@ urlpatterns = [
 		url(r'^new/$', views.new, name='new'),
 		url(r'^create/$', views.create, name='create')
 ]
+
+if not settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
