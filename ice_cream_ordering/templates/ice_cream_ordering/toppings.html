@@ -1,12 +1,6 @@
-<h1>Claire's Ice Cream</h1>
+{% extends "base.html" %}
 
-<ul>
-	<li><a href="/">Home</a></li>
-	<li><a href="/flavors">View Flavors</a></li>
-	<li><a href="/containers">View Containers</a></li>
-	<li><a href="/toppings">View Toppings</a></li>
-	<li><a href="/new">Place Order</a></li>
-</ul>
+{% block content %}
 
 <h3>Claire's Toppings</h3>
 
@@ -15,3 +9,10 @@
 	    <li>{{ t.variety }}</li>
 	{% endfor %}
 </ul>
+
+{% endblock content%}
+
+
+
+		
+
