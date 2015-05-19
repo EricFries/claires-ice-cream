@@ -11,11 +11,11 @@
 	<div class="col-md-4">
 		<p>Choose A Flavor:</p>
 
-		<div class="form-group">
+		<div>
 		{% csrf_token %}
 		{% for f in all_flavors %}
-		    <label for="flavor{{ forloop.counter }}">{{ f.flavor }}</label>
 		    <input type="radio" name="flavor" id="flavor{{ forloop.counter }}" value="{{ f.id }}" class="form-control"/>
+		    <label for="flavor{{ forloop.counter }}">{{ f.flavor }}</label><br>
 		{% endfor %}
 		</div>
 	</div>
