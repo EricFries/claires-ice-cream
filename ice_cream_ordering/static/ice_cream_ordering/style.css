@@ -43,10 +43,8 @@ h2,h3,h4 {
 		font-size: 32px;
 }
 
-.form-control {
-	font-size: 20px;
-}
-
-input.form-control {
-	font-size: 32px;
+.navbar-inverse .navbar-brand:hover, 
+.navbar-inverse .navbar-brand:focus {
+  background-color: transparent;
+  color: #999999;
 }
