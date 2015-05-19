@@ -2,14 +2,16 @@
 
 {% block content %}
 
-<h3>Claire's Toppings</h3>
+<h1>Claire's Toppings</h1>
 
-<ul>
+
 	{% for t in all_toppings %}
-	    <li>{{ t.variety }}</li>
+		<div class="col-md-4">
+	    <h3>{{ t.variety }}</h3>
 	    <img src={{t.image_url}}>
+    </div>
 	{% endfor %}
-</ul>
+
 
 {% endblock content%}
 

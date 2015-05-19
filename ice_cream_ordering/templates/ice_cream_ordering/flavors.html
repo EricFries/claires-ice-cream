@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<h3>Claire's Flavors</h3>
+<h1>Claire's Flavors</h1>
 
 
 	{% for f in all_flavors %}
-	<div class="col-md-4"
-	    <p>{{ f.flavor }}</p>
+	<div class="col-md-4">
+	    <h3>{{ f.flavor }}</h3>
 	   	<img src={{f.image_url}}>
  	</div>
 	{% endfor %}

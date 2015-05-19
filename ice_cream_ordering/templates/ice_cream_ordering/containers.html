@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>Claire's Containers</h3>
+<h1>Claire's Containers</h1>
 
-<ul>
+
 	{% for c in all_containers %}
-	    <li>{{ c.option }}</li>
+		<div class="col-md-4">
+	    <h3>{{ c.option }}</h3>
 	    <img src={{c.image_url}}>
+	    </div>
 	{% endfor %}
-</ul>
+
 
 {% endblock content%}
+
