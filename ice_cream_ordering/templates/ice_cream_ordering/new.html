@@ -9,7 +9,7 @@
 <form action="{% url 'create' %}" method="post"> 
 
 	<div class="col-md-4">
-		<p>Choose A Flavor:</p>
+		<h3>Choose A Flavor:</h3>
 
 		<div>
 		{% csrf_token %}
@@ -22,7 +22,7 @@
 
 
 	<div class="col-md-4">
-		<p>Choose A Container:</p>
+		<h3>Choose A Container:</h3>
 			<div>
 		{% for c in all_containers %}
 		    <input type="radio" name="container" id="container{{ forloop.counter }}" value="{{ c.id }}"/>
@@ -33,7 +33,7 @@
 	</div>
 
 	<div class="col-md-4">
-		<p>Choose Your Toppings:</p>
+		<h3>Choose Your Toppings:</h3>
 		<div>
 			{% for t in all_toppings %}
 	    <input type="checkbox" name="toppings" id="toppings{{ forloop.counter }}" value="{{ t.id }}"/>
@@ -43,8 +43,8 @@
 		</div>
 	</div>
 
-	<div class="col-md-12">
-		<p>Contact Information:</p>
+	<div class="col-md-12 col-md-offset-2">
+		<h3>Your Contact Information:</h3>
 		<div class="form-group">
 		  Name: <input type="text" name="fullname" class="form-control"><br>
 		  Address: <input type="text" name="address" class="form-control"><br>

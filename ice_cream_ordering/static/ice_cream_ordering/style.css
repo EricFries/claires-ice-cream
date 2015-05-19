@@ -1,3 +1,7 @@
 img {
 	max-width: 255px;
 }
+
+.top-buffer { 
+	margin-top:20px; 
+}
