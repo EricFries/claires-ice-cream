@@ -38,3 +38,11 @@ h2,h3,h4 {
 	color: white;
 	font-size: 20px;
 }
+
+.order-btn {
+		font-size: 32px;
+}
+
+input.form-control {
+	font-size: 32px;
+}
