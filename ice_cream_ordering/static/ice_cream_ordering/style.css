@@ -1,5 +1,6 @@
 body {
 	font-family: 'Amatic SC', cursive;
+	font-size: 20px;
 }
 img {
 	max-width: 255px;
@@ -24,10 +25,16 @@ h1 {
 
 h2,h3,h4 {
 	color:rgb(26,109,171);
+	  font-size: 28px;
 }
 
 .navbar {
 	font-family: 'Indie Flower', cursive;
 	background: purple;
+
+}
+
+.navbar a {
 	color: white;
+	font-size: 20px;
 }
