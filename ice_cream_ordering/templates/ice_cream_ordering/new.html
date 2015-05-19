@@ -23,10 +23,10 @@
 
 	<div class="col-md-4">
 		<p>Choose A Container:</p>
-			<div class="form-group">
+			<div>
 		{% for c in all_containers %}
+		    <input type="radio" name="container" id="container{{ forloop.counter }}" value="{{ c.id }}"/>
 		    <label for="container{{ forloop.counter }}">{{ c.option }}</label>
-		    <input type="radio" name="container" id="container{{ forloop.counter }}" value="{{ c.id }}" class="form-control"/>
 		    <br />
 		{% endfor %}
 		</div>
@@ -34,16 +34,16 @@
 
 	<div class="col-md-4">
 		<p>Choose Your Toppings:</p>
-		<div class="form-group">
+		<div>
 			{% for t in all_toppings %}
-			    <label for="toppings{{ forloop.counter }}">{{ t.variety }}</label>
-			    <input type="checkbox" name="toppings" id="toppings{{ forloop.counter }}" value="{{ t.id }}" class="form-control"/>
-			    <br />
+	    <input type="checkbox" name="toppings" id="toppings{{ forloop.counter }}" value="{{ t.id }}"/>
+	     <label for="toppings{{ forloop.counter }}">{{ t.variety }}</label>
+	    <br />
 			{% endfor %}	
 		</div>
 	</div>
 
-	<div class="col-md-4">
+	<div class="col-md-12">
 		<p>Contact Information:</p>
 		<div class="form-group">
 		  Name: <input type="text" name="fullname" class="form-control"><br>
