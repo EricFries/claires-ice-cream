@@ -9,3 +9,11 @@ img {
 .bottom-buffer { 
 	margin-bottom:60px; 
 }
+
+h1,h2,h3,h4 {
+	font-family: 'Pacifico', cursive;
+}
+
+h1 {
+	color: rgb(79,0,122);
+}
