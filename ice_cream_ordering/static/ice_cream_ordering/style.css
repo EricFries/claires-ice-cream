@@ -1,3 +1,6 @@
+body {
+	font-family: 'Amatic SC', cursive;
+}
 img {
 	max-width: 255px;
 }
@@ -10,14 +13,19 @@ img {
 	margin-bottom:60px; 
 }
 
-h1{
+h1,h2,h3,h4{
 	font-family: 'Indie Flower', cursive;
 }
 
 h1 {
 	color: rgb(79,0,122);
+  font-size: 50px;
 }
 
 h2,h3,h4 {
 	color:rgb(26,109,171);
+}
+
+.navbar {
+	font-family: 'Indie Flower', cursive;
 }
