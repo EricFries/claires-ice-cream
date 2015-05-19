@@ -4,12 +4,12 @@
 
 <h3>Claire's Flavors</h3>
 
-<ul>
+<div class="col-md-4"
 	{% for f in all_flavors %}
-	    <li>{{ f.flavor }}</li>
+	    <p>{{ f.flavor }}</p>
 	   	<img src={{f.image_url}}>
 	{% endfor %}
-</ul>
+</div>
 
 {% endblock content%}
 
