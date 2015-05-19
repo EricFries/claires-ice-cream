@@ -10,10 +10,14 @@ img {
 	margin-bottom:60px; 
 }
 
-h1,h2,h3,h4 {
+h1{
 	font-family: 'Indie Flower', cursive;
 }
 
 h1 {
 	color: rgb(79,0,122);
+}
+
+h2,h3,h4 {
+	color:rgb(26,109,171);
 }
