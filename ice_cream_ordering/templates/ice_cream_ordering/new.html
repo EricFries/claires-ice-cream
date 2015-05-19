@@ -1,50 +1,60 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <center>
+	<h1>Place Order</h1>
+</center>
+
+
+<form action="{% url 'create' %}" method="post"> 
+
 	<div class="col-md-4">
-		<h3>Place Order</h3>
-			<p>Choose A Flavor:</p>
-			<form action="{% url 'create' %}" method="post"> 
+		<p>Choose A Flavor:</p>
 
+		<div class="form-group">
+		{% csrf_token %}
+		{% for f in all_flavors %}
+		    <label for="flavor{{ forloop.counter }}">{{ f.flavor }}</label>
+		    <input type="radio" name="flavor" id="flavor{{ forloop.counter }}" value="{{ f.id }}" class="form-control"/>
+		{% endfor %}
+		</div>
+	</div>
+
+
+	<div class="col-md-4">
+		<p>Choose A Container:</p>
 			<div class="form-group">
-			{% csrf_token %}
-			{% for f in all_flavors %}
-			    <label for="flavor{{ forloop.counter }}">{{ f.flavor }}</label>
-			    <input type="radio" name="flavor" id="flavor{{ forloop.counter }}" value="{{ f.id }}" class="form-control"/>
-			{% endfor %}
+		{% for c in all_containers %}
+		    <label for="container{{ forloop.counter }}">{{ c.option }}</label>
+		    <input type="radio" name="container" id="container{{ forloop.counter }}" value="{{ c.id }}" class="form-control"/>
+		    <br />
+		{% endfor %}
+		</div>
+	</div>
 
-
-			<p>Choose A Container:</p>
-			<div class="form-group">
-			{% for c in all_containers %}
-			    <label for="container{{ forloop.counter }}">{{ c.option }}</label>
-			    <input type="radio" name="container" id="container{{ forloop.counter }}" value="{{ c.id }}" class="form-control"/>
-			    <br />
-			{% endfor %}
-			</div>
-
-			<p>Choose Your Toppings:</p>
-			<div class="form-group">
+	<div class="col-md-4">
+		<p>Choose Your Toppings:</p>
+		<div class="form-group">
 			{% for t in all_toppings %}
 			    <label for="toppings{{ forloop.counter }}">{{ t.variety }}</label>
 			    <input type="checkbox" name="toppings" id="toppings{{ forloop.counter }}" value="{{ t.id }}" class="form-control"/>
 			    <br />
 			{% endfor %}	
 		</div>
-		<div class = "row">
-			<p>Contact Information:</p>
-				<div class="form-group">
-			  Name: <input type="text" name="fullname" class="form-control"><br>
-			  Address: <input type="text" name="address" class="form-control"><br>
-			  Email: <input type="text" name="email" class="form-control"><br>
-			  Phone: <input type="text" name="phone" class="form-control"><br>
-			</div>
-			<input type="submit" value="Place Order" class="form-control"/>
-			</form>
+	</div>
+
+	<div class="col-md-4">
+		<p>Contact Information:</p>
+		<div class="form-group">
+		  Name: <input type="text" name="fullname" class="form-control"><br>
+		  Address: <input type="text" name="address" class="form-control"><br>
+		  Email: <input type="text" name="email" class="form-control"><br>
+		  Phone: <input type="text" name="phone" class="form-control"><br>
+
+		<input type="submit" value="Place Order" class="form-control"/>
 		</div>
 	</div>
-</div>
-</center>
+</form>
+
+
 {% endblock content%}
